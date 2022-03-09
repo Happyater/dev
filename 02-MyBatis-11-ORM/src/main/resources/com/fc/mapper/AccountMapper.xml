@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--映射，namespace命名空间，必须和接口的完整包名.类名完全一致-->
+<mapper namespace="com.fc.dao.AccountDao">
+    <resultMap id="findByIdMapper" type="com.fc.entity.Account">
+        <id column="t_id" property="id"/>
+        <result column="t_name" property="username"/>
+        <result column="t_pwd" property="password"/>
+    </resultMap>
+    <select id="findAll" resultType="com.fc.entity.Account">
+        select t_id id, t_name username, t_pwd password from t_account
+    </select>
+    <select id="findById" resultMap="findByIdMapper">
+        select * from t_account where t_id = #{id}
+    </select>
+    <select id="findAllCamelCase" resultType="com.fc.entity.TAccount">
+        select * from t_account
+    </select>
+</mapper>
