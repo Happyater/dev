@@ -9,8 +9,19 @@
 
     <settings>
         <setting name="logImpl" value="LOG4J2"/>
-        <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
+
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!--数据库方言-->
+            <property name="helperDialect" value="mysql"/>
+            <!--分页数据合理化：如果我想查询第0页，默认查询第一页
+            如果我想查不存在的页，查最后一页-->
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+
+
     <!--运行环境-->
     <environments default="development">
         <!--唯一标识id-->
@@ -29,9 +40,6 @@
 
     <!--映射文件-->
     <mappers>
-        <mapper resource="com\fc\mapper\EmployeeMapper.xml"/>
-        <mapper resource="com\fc\mapper\DepartmentMapper.xml"/>
         <mapper resource="com\fc\mapper\StudentMapper.xml"/>
-        <mapper resource="com\fc\mapper\SubjectMapper.xml"/>
     </mappers>
 </configuration>

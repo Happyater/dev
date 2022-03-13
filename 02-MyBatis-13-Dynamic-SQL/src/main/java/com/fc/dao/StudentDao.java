@@ -9,5 +9,9 @@ public interface StudentDao {
 
     List<Student> findByStudent(Student student);
 
+    List<Student> findByStudentWhereTrim(Student student);
+
     int update(Student student);
+
+    int delete(Integer... id);
 }

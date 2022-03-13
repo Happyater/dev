@@ -60,4 +60,35 @@
 
         where id = #{id}
     </update>
+
+    <select id="findByStudentWhereTrim" resultType="com.fc.entity.Student">
+        select <include refid="field"/> from student
+        <trim prefix="where" prefixOverrides="and">
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="name != null">
+                and name like #{name}
+            </if>
+            <if test="age != null">
+                and age = #{age}
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="birthday != null">
+                and birthday = #{birthday
+            </if>
+            <if test="info != null">
+                and info = #{info}
+            </if>
+        </trim>
+    </select>
+
+    <delete id="delete">
+        delete from student where id in
+        <foreach collection="array" open="(" close=")" separator="," index="i" item="id">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>

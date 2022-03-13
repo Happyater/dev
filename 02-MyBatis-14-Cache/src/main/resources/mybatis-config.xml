@@ -9,7 +9,7 @@
 
     <settings>
         <setting name="logImpl" value="LOG4J2"/>
-        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="cacheEnabled" value="true"/>
     </settings>
     <!--运行环境-->
     <environments default="development">
@@ -29,9 +29,6 @@
 
     <!--映射文件-->
     <mappers>
-        <mapper resource="com\fc\mapper\EmployeeMapper.xml"/>
-        <mapper resource="com\fc\mapper\DepartmentMapper.xml"/>
         <mapper resource="com\fc\mapper\StudentMapper.xml"/>
-        <mapper resource="com\fc\mapper\SubjectMapper.xml"/>
     </mappers>
 </configuration>

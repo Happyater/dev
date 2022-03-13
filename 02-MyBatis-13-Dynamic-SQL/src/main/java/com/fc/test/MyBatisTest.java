@@ -9,6 +9,37 @@ import java.util.List;
 
 public class MyBatisTest {
     @Test
+    public void delete(){
+        StudentDao studentDao = MyBatisUtil.getMapper(StudentDao.class);
+
+
+
+        int i = studentDao.delete(11,12);
+
+        System.out.println("受影响的行数:" + i);
+
+        MyBatisUtil.commit();
+    }
+
+
+    @Test
+    public void testFindByStudentWhereTrim(){
+        StudentDao studentDao = MyBatisUtil.getMapper(StudentDao.class);
+
+        Student student = new Student();
+//        student.setId(1);
+        student.setName("%亚%");
+
+
+        List<Student> students = studentDao.findByStudentWhereTrim(student);
+
+        for (Student student1 : students) {
+            System.out.println(student1);
+        }
+        MyBatisUtil.commit();
+    }
+
+    @Test
     public void update(){
         StudentDao studentDao = MyBatisUtil.getMapper(StudentDao.class);
 
