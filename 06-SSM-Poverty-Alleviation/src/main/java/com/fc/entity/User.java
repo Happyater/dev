@@ -23,6 +23,8 @@ public class User {
 
     private String photo;
 
+    private String role;
+
     public Long getId() {
         return id;
     }
@@ -101,5 +103,13 @@ public class User {
 
     public void setPhoto(String photo) {
         this.photo = photo == null ? null : photo.trim();
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role == null ? null : role.trim();
     }
 }

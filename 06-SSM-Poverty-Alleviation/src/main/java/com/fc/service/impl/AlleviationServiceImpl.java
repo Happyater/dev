@@ -46,7 +46,7 @@ public class AlleviationServiceImpl implements AlleviationService {
 
                 alleviationDateVo = new DateVo<>(1L, alleviations, pageNum, pageSize);
 
-                vo = new ResultVo(1000,  "查到这个项目", true, alleviationDateVo);
+                vo = new ResultVo(200,  "查到这个项目", true, alleviationDateVo);
             }
         } else {
             PageHelper.startPage(pageNum, pageSize);
@@ -63,7 +63,7 @@ public class AlleviationServiceImpl implements AlleviationService {
 
                 alleviationDateVo = new DateVo<>(pageInfo.getTotal(), alleviations, pageNum, pageSize);
 
-                vo = new ResultVo(1100, "项目查询成功", true, alleviationDateVo);
+                vo = new ResultVo(200, "项目查询成功", true, alleviationDateVo);
             }
         }
         return vo;
@@ -80,7 +80,7 @@ public class AlleviationServiceImpl implements AlleviationService {
         int i =alleviationMapper.insertSelective(alleviation);
 
         if (i > 0) {
-            vo = new ResultVo(1200, "添加项目成功", true, alleviation);
+            vo = new ResultVo(200, "添加项目成功", true, alleviation);
         } else {
             vo = new ResultVo(4200, "添加项目失败", false, null);
         }
@@ -96,7 +96,7 @@ public class AlleviationServiceImpl implements AlleviationService {
         if(i > 0) {
             alleviation = alleviationMapper.selectByPrimaryKey(alleviation.getId());
 
-            vo = new ResultVo(1300, "修改项目成功", true, alleviation);
+            vo = new ResultVo(200, "修改项目成功", true, alleviation);
         } else {
             vo = new ResultVo(4300, "修改项目失败", false, null);
         }
@@ -111,7 +111,7 @@ public class AlleviationServiceImpl implements AlleviationService {
         int i = alleviationMapper.deleteByPrimaryKey(id);
 
         if(id > 0) {
-            vo = new ResultVo(1400, "删除项目成功", true, null);
+            vo = new ResultVo(200, "删除项目成功", true, null);
         } else {
             vo = new ResultVo(4400, "删除项目失败", false, null);
         }
@@ -130,7 +130,7 @@ public class AlleviationServiceImpl implements AlleviationService {
         ResultVo vo;
 
         if (affectedRows > 0) {
-            vo = new ResultVo(1000, "播放量加1成功！！", true, null);
+            vo = new ResultVo(200, "播放量加1成功！！", true, null);
         } else {
             vo = new ResultVo(5000, "播放量加1失败！！", false, null);
         }

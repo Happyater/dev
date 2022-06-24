@@ -36,15 +36,15 @@ public class VolunteerServiceImpl implements VolunteerService {
 
                 vo = new ResultVo(4000, "没有这个志愿者", false, volunteerRecruitmentDateVo);
             } else {
-//                click(volunteerRecruitment.getId(), null);
-//
-//                volunteerRecruitment.setClickNum(volunteerRecruitment.getClickNum() + 1);
+                click(volunteerRecruitment.getId(), null);
+
+                volunteerRecruitment.setClickNum(volunteerRecruitment.getClickNum() + 1);
 
                 volunteerRecruitments.add(volunteerRecruitment);
 
                 volunteerRecruitmentDateVo = new DateVo<>(1L, volunteerRecruitments, pageNum, pageSize);
 
-                vo = new ResultVo(1000,  "查到了志愿者", true, volunteerRecruitmentDateVo);
+                vo = new ResultVo(200,  "查到了志愿者", true, volunteerRecruitmentDateVo);
             }
         } else {
             PageHelper.startPage(pageNum, pageSize);
@@ -61,7 +61,7 @@ public class VolunteerServiceImpl implements VolunteerService {
 
                 volunteerRecruitmentDateVo = new DateVo<>(pageInfo.getTotal(), volunteerRecruitments, pageNum, pageSize);
 
-                vo = new ResultVo(1100, "志愿者查询成功", true, volunteerRecruitmentDateVo);
+                vo = new ResultVo(200, "志愿者查询成功", true, volunteerRecruitmentDateVo);
             }
         }
         return vo;
@@ -78,7 +78,7 @@ public class VolunteerServiceImpl implements VolunteerService {
         int i =volunteerRecruitmentMapper.insertSelective(volunteerRecruitment);
 
         if (i > 0) {
-            vo = new ResultVo(1200, "添加志愿者成功", true, volunteerRecruitment);
+            vo = new ResultVo(200, "添加志愿者成功", true, volunteerRecruitment);
         } else {
             vo = new ResultVo(4200, "添加志愿者失败", false, null);
         }
@@ -94,7 +94,7 @@ public class VolunteerServiceImpl implements VolunteerService {
         if(i > 0) {
             volunteerRecruitment = volunteerRecruitmentMapper.selectByPrimaryKey(volunteerRecruitment.getId());
 
-            vo = new ResultVo(1300, "修改志愿者成功", true, volunteerRecruitment);
+            vo = new ResultVo(200, "修改志愿者成功", true, volunteerRecruitment);
         } else {
             vo = new ResultVo(4300, "修改志愿者失败", false, null);
         }
@@ -109,7 +109,7 @@ public class VolunteerServiceImpl implements VolunteerService {
         int i = volunteerRecruitmentMapper.deleteByPrimaryKey(id);
 
         if(id > 0) {
-            vo = new ResultVo(1400, "删除志愿者成功", true, null);
+            vo = new ResultVo(200, "删除志愿者成功", true, null);
         } else {
             vo = new ResultVo(4400, "删除志愿者失败", false, null);
         }
@@ -128,7 +128,7 @@ public class VolunteerServiceImpl implements VolunteerService {
         ResultVo vo;
 
         if (affectedRows > 0) {
-            vo = new ResultVo(1000, "点击加1成功！！", true, null);
+            vo = new ResultVo(200, "点击加1成功！！", true, null);
         } else {
             vo = new ResultVo(5000, "点击加1失败！！", false, null);
         }

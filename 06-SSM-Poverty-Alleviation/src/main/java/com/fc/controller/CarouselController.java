@@ -5,7 +5,7 @@ import com.fc.service.CarouselService;
 import com.fc.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("carousel")
 public class CarouselController {
@@ -20,12 +20,12 @@ public class CarouselController {
     }
 
     @PostMapping("add")
-    public ResultVo add(Carousel carousel) {
+    public ResultVo add(@RequestBody Carousel carousel) {
         return carouselService.add(carousel);
     }
 
     @PostMapping("update")
-    public ResultVo update(Carousel carousel) {
+    public ResultVo update(@RequestBody Carousel carousel) {
         return carouselService.update(carousel);
     }
 
@@ -34,7 +34,7 @@ public class CarouselController {
         return carouselService.delete(id);
     }
 
-    @PostMapping("changeStatus")
+    @GetMapping("state")
     public ResultVo changeStatus(Integer id) {
         return carouselService.changeStatus(id);
     }

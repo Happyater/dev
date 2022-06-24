@@ -6,7 +6,7 @@ import com.fc.service.MessageBoardService;
 import com.fc.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("msgboard")
 public class MessageBoardController {
@@ -21,12 +21,12 @@ public class MessageBoardController {
     }
 
     @PostMapping("add")
-    public ResultVo add(MessageBoardWithBLOBs messageBoard) {
+    public ResultVo add(@RequestBody MessageBoardWithBLOBs messageBoard) {
         return messageBoardService.add(messageBoard);
     }
 
     @PostMapping("update")
-    public ResultVo update(MessageBoardWithBLOBs messageBoard) {
+    public ResultVo update(@RequestBody MessageBoardWithBLOBs messageBoard) {
         return messageBoardService.update(messageBoard);
     }
 

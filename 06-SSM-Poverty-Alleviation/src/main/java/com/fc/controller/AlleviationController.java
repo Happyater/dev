@@ -5,7 +5,7 @@ import com.fc.service.AlleviationService;
 import com.fc.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("alleviation")
 public class AlleviationController {
@@ -20,12 +20,12 @@ public class AlleviationController {
     }
 
     @PostMapping("add")
-    public ResultVo add(Alleviation alleviation) {
+    public ResultVo add(@RequestBody Alleviation alleviation) {
         return alleviationService.add(alleviation);
     }
 
     @PostMapping("update")
-    public ResultVo update(Alleviation alleviation) {
+    public ResultVo update(@RequestBody Alleviation alleviation) {
         return alleviationService.update(alleviation);
     }
 

@@ -41,7 +41,7 @@ public class CarouselServiceImpl implements CarouselService {
 
                 carouselDateVo = new DateVo<>(1L, carousels, pageNum, pageSize);
 
-                vo = new ResultVo(1000,  "有这张图", true, carouselDateVo);
+                vo = new ResultVo(200,  "有这张图", true, carouselDateVo);
             }
         } else {
             PageHelper.startPage(pageNum, pageSize);
@@ -58,7 +58,7 @@ public class CarouselServiceImpl implements CarouselService {
 
                 carouselDateVo = new DateVo<>(pageInfo.getTotal(), carousels, pageNum, pageSize);
 
-                vo = new ResultVo(1100, "图片查询成功", true, carouselDateVo);
+                vo = new ResultVo(200, "图片查询成功", true, carouselDateVo);
             }
         }
         return vo;
@@ -75,7 +75,7 @@ public class CarouselServiceImpl implements CarouselService {
         int i = carouselMapper.insertSelective(carousel);
 
         if (i > 0) {
-            vo = new ResultVo(1200, "添加图片成功", true, carousel);
+            vo = new ResultVo(200, "添加图片成功", true, carousel);
         } else {
             vo = new ResultVo(4200, "添加图片失败", false, null);
         }
@@ -91,7 +91,7 @@ public class CarouselServiceImpl implements CarouselService {
         if(i > 0) {
             carousel = carouselMapper.selectByPrimaryKey(carousel.getId());
 
-            vo = new ResultVo(1300, "修改图片成功", true, carousel);
+            vo = new ResultVo(200, "修改图片成功", true, carousel);
         } else {
             vo = new ResultVo(4300, "修改图片失败", false, null);
         }
@@ -106,7 +106,7 @@ public class CarouselServiceImpl implements CarouselService {
         int i = carouselMapper.deleteByPrimaryKey(id);
 
         if(id > 0) {
-            vo = new ResultVo(1400, "删除图片成功", true, null);
+            vo = new ResultVo(200, "删除图片成功", true, null);
         } else {
             vo = new ResultVo(4400, "删除图片失败", false, null);
         }
@@ -120,7 +120,7 @@ public class CarouselServiceImpl implements CarouselService {
 
         ResultVo vo;
         if(i > 0) {
-            vo = new ResultVo(1500, "修改图片状态成功", true, null);
+            vo = new ResultVo(200, "修改图片状态成功", true, null);
         } else {
             vo = new ResultVo(4500, "修改图片状态失败", false, null);
         }

@@ -46,7 +46,7 @@ public class PoorServiceImpl implements PoorService {
 
                 poorDateVo = new DateVo<>(1L, poorWithBLOBs, pageNum, pageSize);
 
-                vo = new ResultVo(1000,  "查到这个贫困户", true, poorDateVo);
+                vo = new ResultVo(200,  "查到这个贫困户", true, poorDateVo);
             }
         } else {
             PageHelper.startPage(pageNum, pageSize);
@@ -63,7 +63,7 @@ public class PoorServiceImpl implements PoorService {
 
                 poorDateVo = new DateVo<>(pageInfo.getTotal(), poorWithBLOBs, pageNum, pageSize);
 
-                vo = new ResultVo(1100, "贫困户查询成功", true, poorDateVo);
+                vo = new ResultVo(200, "贫困户查询成功", true, poorDateVo);
             }
         }
         return vo;
@@ -80,7 +80,7 @@ public class PoorServiceImpl implements PoorService {
         int i = poorMapper.insertSelective(poor);
 
         if (i > 0) {
-            vo = new ResultVo(1200, "添加贫困户成功", true, poor);
+            vo = new ResultVo(200, "添加贫困户成功", true, poor);
         } else {
             vo = new ResultVo(4200, "添加贫困户失败", false, null);
         }
@@ -96,7 +96,7 @@ public class PoorServiceImpl implements PoorService {
         if(i > 0) {
             poor = poorMapper.selectByPrimaryKey(poor.getId());
 
-            vo = new ResultVo(1300, "修改贫困户成功", true, poor);
+            vo = new ResultVo(200, "修改贫困户成功", true, poor);
         } else {
             vo = new ResultVo(4300, "修改贫困户失败", false, null);
         }
@@ -111,7 +111,7 @@ public class PoorServiceImpl implements PoorService {
         int i = poorMapper.deleteByPrimaryKey(id);
 
         if(id > 0) {
-            vo = new ResultVo(1400, "删除贫困户成功", true, null);
+            vo = new ResultVo(200, "删除贫困户成功", true, null);
         } else {
             vo = new ResultVo(4400, "删除贫困户失败", false, null);
         }
@@ -130,7 +130,7 @@ public class PoorServiceImpl implements PoorService {
         ResultVo vo;
 
         if (affectedRows > 0) {
-            vo = new ResultVo(1000, "点击量加1成功！！", true, null);
+            vo = new ResultVo(200, "点击量加1成功！！", true, null);
         } else {
             vo = new ResultVo(5000, "点击量加1失败！！", false, null);
         }

@@ -43,7 +43,7 @@ public class MessageBoardServiceImpl implements MessageBoardService {
 
                 messageBoardDateVo = new DateVo<>(1L, messageBoards, pageNum, pageSize);
 
-                vo = new ResultVo(1000,  "查到这个留言板", true, messageBoardDateVo);
+                vo = new ResultVo(200,  "查到这个留言板", true, messageBoardDateVo);
             }
         } else {
             PageHelper.startPage(pageNum, pageSize);
@@ -60,7 +60,7 @@ public class MessageBoardServiceImpl implements MessageBoardService {
 
                 messageBoardDateVo = new DateVo<>(pageInfo.getTotal(), messageBoards, pageNum, pageSize);
 
-                vo = new ResultVo(1100, "留言板查询成功", true, messageBoardDateVo);
+                vo = new ResultVo(200, "留言板查询成功", true, messageBoardDateVo);
             }
         }
         return vo;
@@ -77,7 +77,7 @@ public class MessageBoardServiceImpl implements MessageBoardService {
         int i = messageBoardMapper.insertSelective(messageBoard);
 
         if (i > 0) {
-            vo = new ResultVo(1200, "添加留言板成功", true, messageBoard);
+            vo = new ResultVo(200, "添加留言板成功", true, messageBoard);
         } else {
             vo = new ResultVo(4200, "添加留言板失败", false, null);
         }
@@ -93,7 +93,7 @@ public class MessageBoardServiceImpl implements MessageBoardService {
         if(i > 0) {
             messageBoard = messageBoardMapper.selectByPrimaryKey(messageBoard.getId());
 
-            vo = new ResultVo(1300, "修改留言板成功", true, messageBoard);
+            vo = new ResultVo(200, "修改留言板成功", true, messageBoard);
         } else {
             vo = new ResultVo(4300, "修改留言板失败", false, null);
         }
@@ -108,7 +108,7 @@ public class MessageBoardServiceImpl implements MessageBoardService {
         int i = messageBoardMapper.deleteByPrimaryKey(id);
 
         if(id > 0) {
-            vo = new ResultVo(1400, "删除留言板成功", true, null);
+            vo = new ResultVo(200, "删除留言板成功", true, null);
         } else {
             vo = new ResultVo(4400, "删除留言板失败", false, null);
         }

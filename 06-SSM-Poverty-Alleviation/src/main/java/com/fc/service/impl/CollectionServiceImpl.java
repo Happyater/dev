@@ -42,7 +42,7 @@ public class CollectionServiceImpl implements CollectionService {
 
                 collectionDateVo = new DateVo<>(1L, collections, pageNum, pageSize);
 
-                vo = new ResultVo(1000,  "查到这个收藏表", true, collectionDateVo);
+                vo = new ResultVo(200,  "查到这个收藏表", true, collectionDateVo);
             }
         } else {
             PageHelper.startPage(pageNum, pageSize);
@@ -59,7 +59,7 @@ public class CollectionServiceImpl implements CollectionService {
 
                 collectionDateVo = new DateVo<>(pageInfo.getTotal(), collections, pageNum, pageSize);
 
-                vo = new ResultVo(1100, "收藏表查询成功", true, collectionDateVo);
+                vo = new ResultVo(200, "收藏表查询成功", true, collectionDateVo);
             }
         }
         return vo;
@@ -76,7 +76,7 @@ public class CollectionServiceImpl implements CollectionService {
         int i =collectionMapper.insertSelective(collection);
 
         if (i > 0) {
-            vo = new ResultVo(1200, "添加收藏表成功", true, collection);
+            vo = new ResultVo(200, "添加收藏表成功", true, collection);
         } else {
             vo = new ResultVo(4200, "添加收藏表失败", false, null);
         }
@@ -92,7 +92,7 @@ public class CollectionServiceImpl implements CollectionService {
         if(i > 0) {
             collection = collectionMapper.selectByPrimaryKey(collection.getId());
 
-            vo = new ResultVo(1300, "修改收藏表成功", true, collection);
+            vo = new ResultVo(200, "修改收藏表成功", true, collection);
         } else {
             vo = new ResultVo(4300, "修改收藏表失败", false, null);
         }
@@ -107,7 +107,7 @@ public class CollectionServiceImpl implements CollectionService {
         int i = collectionMapper.deleteByPrimaryKey(id);
 
         if(id > 0) {
-            vo = new ResultVo(1400, "删除收藏表成功", true, null);
+            vo = new ResultVo(200, "删除收藏表成功", true, null);
         } else {
             vo = new ResultVo(4400, "删除收藏表失败", false, null);
         }

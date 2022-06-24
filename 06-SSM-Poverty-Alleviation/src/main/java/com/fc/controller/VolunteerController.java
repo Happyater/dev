@@ -6,7 +6,7 @@ import com.fc.service.VolunteerService;
 import com.fc.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("volunteer")
 public class VolunteerController {
@@ -21,12 +21,12 @@ public class VolunteerController {
     }
 
     @PostMapping("add")
-    public ResultVo add(VolunteerRecruitment volunteerRecruitment) {
+    public ResultVo add(@RequestBody VolunteerRecruitment volunteerRecruitment) {
         return volunteerService.add(volunteerRecruitment);
     }
 
     @PostMapping("update")
-    public ResultVo update(VolunteerRecruitment volunteerRecruitment) {
+    public ResultVo update(@RequestBody VolunteerRecruitment volunteerRecruitment) {
         return volunteerService.update(volunteerRecruitment);
     }
 

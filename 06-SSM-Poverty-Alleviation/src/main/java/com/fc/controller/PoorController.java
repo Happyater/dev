@@ -7,7 +7,7 @@ import com.fc.service.PoorService;
 import com.fc.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("poor")
 public class PoorController {
@@ -22,12 +22,12 @@ public class PoorController {
     }
 
     @PostMapping("add")
-    public ResultVo add(PoorWithBLOBs poor) {
+    public ResultVo add(@RequestBody PoorWithBLOBs poor) {
         return poorService.add(poor);
     }
 
     @PostMapping("update")
-    public ResultVo update(PoorWithBLOBs poor) {
+    public ResultVo update(@RequestBody PoorWithBLOBs poor) {
         return poorService.update(poor);
     }
 

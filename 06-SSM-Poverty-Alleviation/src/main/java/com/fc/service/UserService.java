@@ -11,4 +11,6 @@ public interface UserService {
     ResultVo update(User user);
 
     ResultVo delete(Long id);
+
+    ResultVo login(String username, String password);
 }

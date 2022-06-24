@@ -5,12 +5,18 @@ import com.fc.service.UserService;
 import com.fc.vo.ResultVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("user")
 public class UserController {
     @Autowired
     private UserService userService;
+
+    @PostMapping("login")
+    public ResultVo login(@RequestParam String username,
+                          @RequestParam String password) {
+        return userService.login(username, password);
+    }
 
     @GetMapping("getlist")
     public ResultVo getList(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
@@ -20,12 +26,12 @@ public class UserController {
     }
 
     @PostMapping("add")
-    public ResultVo add(User user) {
+    public ResultVo add(@RequestBody User user) {
         return userService.add(user);
     }
 
     @PostMapping("update")
-    public ResultVo update(User user) {
+    public ResultVo update(@RequestBody User user) {
         return userService.update(user);
     }
 
